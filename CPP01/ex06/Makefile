@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/12/26 16:11:55 by ecullier          #+#    #+#              #
-#    Updated: 2023/12/26 20:11:44 by ecullier         ###   ########.fr        #
+#    Created: 2023/12/26 20:22:17 by ecullier          #+#    #+#              #
+#    Updated: 2023/12/26 20:54:46 by ecullier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME=Harl
+NAME=harlFilter
 
 CC=g++
 CFLAGS=-Wall -Wextra -Werror -g -std=c++98

@@ -5,21 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/26 16:12:09 by ecullier          #+#    #+#             */
-/*   Updated: 2023/12/26 20:11:10 by ecullier         ###   ########.fr       */
+/*   Created: 2023/12/26 20:29:30 by ecullier          #+#    #+#             */
+/*   Updated: 2023/12/26 20:30:30 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
+#include <iostream>
 
-int main()
+int main(int argc, char *argv[])
 {
-    Harl harl;
+    if (argc != 2)
+    {
+        std::cerr << "Usage: ./harlFilter <level>" << std::endl;
+        return 1;
+    }
 
-    harl.complain("DEBUG");
-    harl.complain("INFO");
-    harl.complain("WARNING");
-    harl.complain("ERROR");
+    Harl harl;
+    harl.complain(argv[1]);
 
     return 0;
 }
