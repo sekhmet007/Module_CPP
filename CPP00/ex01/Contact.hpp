@@ -6,14 +6,13 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 20:15:29 by ecullier          #+#    #+#             */
-/*   Updated: 2023/12/25 17:39:26 by ecullier         ###   ########.fr       */
+/*   Updated: 2023/12/26 09:59:33 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
 
-#include "PhoneBook.hpp"
 #include <iostream>
 #include <string>
 

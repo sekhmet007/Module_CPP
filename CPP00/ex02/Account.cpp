@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 18:10:55 by ecullier          #+#    #+#             */
-/*   Updated: 2023/12/25 18:45:49 by ecullier         ###   ########.fr       */
+/*   Updated: 2023/12/26 10:17:39 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ Account::~Account()
 
 void Account::_displayTimestamp()
 {
-    std::time_t now = std::time(nullptr);
+    std::time_t now = std::time(0);
     std::tm *ltm = std::localtime(&now);
     std::cout << "[" << 1900 + ltm->tm_year;
     std::cout << std::setw(2) << std::setfill('0') << 1 + ltm->tm_mon;

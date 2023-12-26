@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 20:09:58 by ecullier          #+#    #+#             */
-/*   Updated: 2023/12/25 17:44:20 by ecullier         ###   ########.fr       */
+/*   Updated: 2023/12/26 10:09:02 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class PhoneBook
 	PhoneBook();
     	~PhoneBook();
 
-	void AddContact(const Contact& Contact);
+	void AddContact(const Contact& Contacts);
 
 	void DisplayContacts() const;
 

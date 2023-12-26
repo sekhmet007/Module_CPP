@@ -1,0 +1,41 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/12/26 09:35:39 by ecullier          #+#    #+#              #
+#    Updated: 2023/12/26 09:38:16 by ecullier         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+CC=g++
+
+# Options de compilation
+CFLAGS=-Wall -Wextra -Werror -std=c++98
+
+# Nom du fichier exécutable
+EXEC=megaphone
+
+# Source files
+SRC=megaphone.cpp
+
+# Object files
+OBJ=$(SRC:.cpp=.o)
+
+all: $(EXEC)
+
+$(EXEC): $(OBJ)
+	$(CC) $(OBJ) -o $(EXEC)
+
+%.o: %.cpp
+	$(CC) -c $(CFLAGS) $< -o $@
+
+clean:
+	rm -f $(OBJ)
+
+fclean: clean
+	rm -f $(EXEC)
+
+re: fclean all
