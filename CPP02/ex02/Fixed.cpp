@@ -5,17 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/26 21:28:56 by ecullier          #+#    #+#             */
-/*   Updated: 2023/12/28 08:59:07 by ecullier         ###   ########.fr       */
+/*   Created: 2023/12/27 08:09:17 by ecullier          #+#    #+#             */
+/*   Updated: 2023/12/27 08:56:42 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-#include <iostream>
 
 Fixed::Fixed() : value(0)
 {
     std::cout << "Default constructor called" << std::endl;
+}
+
+Fixed::Fixed(const int intValue)
+{
+    std::cout << "Int constructor called" << std::endl;
+    value = intValue << fractionalBits;
+}
+
+Fixed::Fixed(const float floatValue)
+{
+    std::cout << "Float constructor called" << std::endl;
+    value = roundf(floatValue * (1 << fractionalBits));
 }
 
 Fixed::Fixed(const Fixed& other)
@@ -34,18 +45,53 @@ Fixed& Fixed::operator=(const Fixed& other)
     std::cout << "Copy assignment operator called" << std::endl;
     if (this != &other)
     {
-        this->value = other.getRawBits();
+        this->value = other.value;
     }
     return *this;
 }
 
 int Fixed::getRawBits(void) const
 {
-    std::cout << "getRawBits member function called" << std::endl;
-    return this->value;
+    return value;
 }
 
 void Fixed::setRawBits(int const raw)
 {
-    this->value = raw;
+    value = raw;
+}
+
+float Fixed::toFloat(void) const
+{
+    return static_cast<float>(value) / (1 << fractionalBits);
+}
+
+int Fixed::toInt(void) const
+{
+    return value >> fractionalBits;
+}
+
+Fixed& Fixed::min(Fixed& a, Fixed& b)
+{
+    return (a < b) ? a : b;
+}
+
+const Fixed& Fixed::min(const Fixed& a, const Fixed& b)
+{
+    return (a < b) ? a : b;
+}
+
+Fixed& Fixed::max(Fixed& a, Fixed& b)
+{
+    return (a > b) ? a : b;
+}
+
+const Fixed& Fixed::max(const Fixed& a, const Fixed& b)
+{
+    return (a > b) ? a : b;
+}
+
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed)
+{
+    os << fixed.toFloat();
+    return os;
 }

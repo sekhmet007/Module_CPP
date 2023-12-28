@@ -1,29 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   OperatorCompar.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/26 21:29:07 by ecullier          #+#    #+#             */
-/*   Updated: 2023/12/28 09:01:53 by ecullier         ###   ########.fr       */
+/*   Created: 2023/12/27 08:47:56 by ecullier          #+#    #+#             */
+/*   Updated: 2023/12/27 09:03:49 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-#include <iostream>
 
-int main(void)
+//opérateurs de décrémentation
+
+Fixed& Fixed::operator++()
 {
-    Fixed a;
-    Fixed b(a);
-    Fixed c;
+    this->value++;
+    return (*this);
+}
 
-    c = b;
+Fixed Fixed::operator++(int)
+{
+    Fixed temp = *this;
+    ++(*this);
+    return temp;
+}
 
-    std::cout << a.getRawBits() << std::endl;
-    std::cout << b.getRawBits() << std::endl;
-    std::cout << c.getRawBits() << std::endl;
+Fixed& Fixed::operator--()
+{
+    this->value--;
+    return (*this);
+}
 
-    return 0;
+Fixed Fixed::operator--(int)
+{
+    Fixed temp = *this;
+    --(*this);
+    return temp;
 }
