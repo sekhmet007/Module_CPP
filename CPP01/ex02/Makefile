@@ -6,7 +6,7 @@
 #    By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/26 14:22:21 by ecullier          #+#    #+#              #
-#    Updated: 2023/12/26 14:33:10 by ecullier         ###   ########.fr        #
+#    Updated: 2023/12/27 16:44:30 by ecullier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ $(NAME): $(OBJ)
 clean:
 	rm -f $(OBJ)
 fclean:
-	rm -f $(NAME)
+	rm -f $(NAME) $(OBJ)
 
 re: fclean all
 

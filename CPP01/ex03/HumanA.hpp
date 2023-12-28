@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 14:40:33 by ecullier          #+#    #+#             */
-/*   Updated: 2023/12/26 15:02:07 by ecullier         ###   ########.fr       */
+/*   Updated: 2023/12/27 16:46:08 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ class HumanA
     private:
 
         std::string name;
-        Weapon& weapon;//reference a  Weapon
-    
+        Weapon  &weapon;//reference a  Weapon
+
     public:
 
         HumanA(const std::string& name, Weapon& weapon);
@@ -31,7 +31,7 @@ class HumanA
 
 #endif
 
-/*HumanA utilise une Référence : Puisque HumanA est toujours armé 
-et reçoit son Weapon à la construction, une référence est appropriée. 
-Elle garantit que HumanA a toujours une arme valide 
+/*HumanA utilise une Référence : Puisque HumanA est toujours armé
+et reçoit son Weapon à la construction, une référence est appropriée.
+Elle garantit que HumanA a toujours une arme valide
 et ne peut pas être dissocié de cette arme.*/

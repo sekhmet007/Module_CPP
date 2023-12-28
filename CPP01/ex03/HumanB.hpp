@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 14:41:06 by ecullier          #+#    #+#             */
-/*   Updated: 2023/12/26 15:02:40 by ecullier         ###   ########.fr       */
+/*   Updated: 2023/12/27 16:46:56 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@
 class HumanB
 {
     private:
-    
+
         std::string name;
-        Weapon* weapon; // Pointeur vers Weapon
+        Weapon *weapon; // Pointeur vers Weapon
 
     public:
-    
-        HumanB(const std::string& name);
-        void setWeapon(Weapon& weapon);
+
+        HumanB(const std::string &name);
+        void setWeapon(Weapon &weapon);
         void attack() const;
 };
 

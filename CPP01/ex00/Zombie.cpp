@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 11:17:40 by ecullier          #+#    #+#             */
-/*   Updated: 2023/12/26 11:38:08 by ecullier         ###   ########.fr       */
+/*   Updated: 2023/12/27 16:42:24 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 Zombie::Zombie(std::string name) : name(name) {}
 
-Zombie::~Zombie() 
+Zombie::~Zombie()
 {
     std::cout << name << ": I'am destroyed..." << std::endl;
 }

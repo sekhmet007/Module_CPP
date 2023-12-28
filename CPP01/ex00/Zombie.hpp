@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 11:17:27 by ecullier          #+#    #+#             */
-/*   Updated: 2023/12/26 12:23:22 by ecullier         ###   ########.fr       */
+/*   Updated: 2023/12/27 16:42:50 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,16 @@ class Zombie
     private:
 
         std::string name;
-    
+
     public:
-    
+
          Zombie(std::string name);
         ~Zombie();
-        
 
-    void announce(void);
+        void announce(void);
 };
 
-Zombie* newZombie(std::string name);
+Zombie *newZombie(std::string name);
 void randomChump(std::string name);
 
 #endif

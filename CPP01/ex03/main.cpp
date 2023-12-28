@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 14:39:35 by ecullier          #+#    #+#             */
-/*   Updated: 2023/12/26 15:15:07 by ecullier         ###   ########.fr       */
+/*   Updated: 2023/12/27 16:47:03 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main()
 {
     {
         Weapon club = Weapon("crude spiked club");
-        
+
         HumanA bob("Bob", club);
         bob.attack();
         club.setType("some other type of club");
@@ -26,7 +26,7 @@ int main()
     }
     {
         Weapon club = Weapon("crude spiked club");
-        
+
         HumanB jim("Jim");
         jim.setWeapon(club);
         jim.attack();
