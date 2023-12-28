@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 20:09:58 by ecullier          #+#    #+#             */
-/*   Updated: 2023/12/26 10:09:02 by ecullier         ###   ########.fr       */
+/*   Updated: 2023/12/27 16:34:31 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,19 @@ class PhoneBook
 {
 	public:
 
-	PhoneBook();
-    	~PhoneBook();
+		PhoneBook();
+    		~PhoneBook();
 
-	void AddContact(const Contact& Contacts);
+		void AddContact(const Contact& Contacts);
 
-	void DisplayContacts() const;
+		void DisplayContacts() const;
 
-	void SearchContact(int index) const;
+		void SearchContact(int index) const;
 
 	private:
 
-	Contact Contacts[8];
-    	int CurrentContact;
+		Contact Contacts[8];
+    		int CurrentContact;
 
 };
 

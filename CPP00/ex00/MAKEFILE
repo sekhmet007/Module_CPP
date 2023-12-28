@@ -5,32 +5,37 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/12/23 17:02:53 by ecullier          #+#    #+#              #
-#    Updated: 2023/12/23 20:04:58 by ecullier         ###   ########.fr        #
+#    Created: 2023/12/26 09:35:39 by ecullier          #+#    #+#              #
+#    Updated: 2023/12/27 16:12:04 by ecullier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME=megaphone
-
 CC=g++
-CFLAGS=-Wall -Wextra -Werror -g -std=c++98
 
+# Options de compilation
+CFLAGS=-Wall -Wextra -Werror -std=c++98
+
+# Nom du fichier exécutable
+EXEC=megaphone
+
+# Source files
 SRC=megaphone.cpp
 
+# Object files
 OBJ=$(SRC:.cpp=.o)
 
-all : $(NAME)
+all: $(EXEC)
 
-$(NAME): $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
+$(EXEC): $(OBJ)
+	$(CC) $(OBJ) -o $(EXEC)
 
 %.o: %.cpp
 	$(CC) -c $(CFLAGS) $< -o $@
+
 clean:
 	rm -f $(OBJ)
-fclean:
-	rm -f $(NAME)
+
+fclean: clean
+	rm -f $(EXEC) $(OBJ)
 
 re: fclean all
-
-.PHONY: all clean fclean

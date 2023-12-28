@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 18:10:29 by ecullier          #+#    #+#             */
-/*   Updated: 2023/12/25 18:44:47 by ecullier         ###   ########.fr       */
+/*   Updated: 2023/12/27 16:40:07 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,59 +14,54 @@
 #ifndef __ACCOUNT_H__
 #define __ACCOUNT_H__
 
-// ************************************************************************** //
-//                               Account Class                                //
-// ************************************************************************** //
-
-class Account {
+class Account
+{
 
 
-public:
+	public:
 
-	typedef Account		t;
+		typedef Account		t;
 
-	static int	getNbAccounts( void );
-	static int	getTotalAmount( void );
-	static int	getNbDeposits( void );
-	static int	getNbWithdrawals( void );
-	static void	displayAccountsInfos( void );
+		static int	getNbAccounts( void );
+		static int	getTotalAmount( void );
+		static int	getNbDeposits( void );
+		static int	getNbWithdrawals( void );
+		static void	displayAccountsInfos( void );
 
-	Account( int initial_deposit );
-	~Account( void );
+		Account( int initial_deposit );
+		~Account( void );
 
-	void init(int initial_deposit);
-	void	makeDeposit( int deposit );
-	bool	makeWithdrawal( int withdrawal );
-	int		checkAmount( void ) const;
-	void	displayStatus( void ) const;
+		void 	init(int initial_deposit);
+		void	makeDeposit( int deposit );
+		bool	makeWithdrawal( int withdrawal );
+		int	checkAmount( void ) const;
+		void	displayStatus( void ) const;
 
 
-private:
+	private:
 
-	static int	_nbAccounts;
-	static int	_totalAmount;
-	static int	_totalNbDeposits;
-	static int	_totalNbWithdrawals;
+		static int	_nbAccounts;
+		static int	_totalAmount;
+		static int	_totalNbDeposits;
+		static int	_totalNbWithdrawals;
 
-	static void	_displayTimestamp( void );
+		static void	_displayTimestamp( void );
 
-	int				_accountIndex;
-	int				_amount;
-	int				_nbDeposits;
-	int				_nbWithdrawals;
+		int		_accountIndex;
+		int		_amount;
+		int		_nbDeposits;
+		int		_nbWithdrawals;
 
-	Account( void );
+		Account( void );
 
 };
 
+#endif
+/*------------------------Informations----------------------------------------------*/
+/*le '_' devant le nom d'une ofnciton ou d'une variable est une convention de nomage
+pour indiquer que l'element est privee ou interne a la class*/
 
-
-// ************************************************************************** //
-// vim: set ts=4 sw=4 tw=80 noexpandtab:                                      //
-// -*- indent-tabs-mode:t;                                                   -*-
-// -*- mode: c++-mode;                                                       -*-
-// -*- fill-column: 75; comment-column: 75;                                  -*-
-// ************************************************************************** //
-
-
-#endif /* __ACCOUNT_H__ */
+/* #pragma once :#pragma once est une directive de préprocesseur qui assure qu'un fichier
+d'en-tête est inclus au plus une fois lors de la compilation.
+C'est une alternative moderne et souvent préférée à la traditionnelle "inclusion guard"
+(#ifndef, #define, #endif). */

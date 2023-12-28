@@ -1,7 +1,7 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    MAKEFILE                                           :+:      :+:    :+:    #
+#    Makefile                                          :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
@@ -29,7 +29,7 @@ $(NAME): $(OBJ)
 clean:
 	rm -f $(OBJ)
 fclean:
-	rm -f $(NAME)
+	rm -f $(NAME) $(OBJ)
 
 re: fclean all
 

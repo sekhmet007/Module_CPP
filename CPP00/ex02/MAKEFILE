@@ -6,16 +6,16 @@
 #    By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/25 18:16:56 by ecullier          #+#    #+#              #
-#    Updated: 2023/12/25 18:26:40 by ecullier         ###   ########.fr        #
+#    Updated: 2023/12/27 16:18:45 by ecullier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME=PhoneBook
+NAME=Account
 
 CC=g++
 CFLAGS=-Wall -Wextra -Werror -g -std=c++98
 
-SRC=Account.cpp
+SRC=Account.cpp main.cpp
 
 OBJ=$(SRC:.cpp=.o)
 
@@ -29,7 +29,7 @@ $(NAME): $(OBJ)
 clean:
 	rm -f $(OBJ)
 fclean:
-	rm -f $(NAME)
+	rm -f $(NAME) $(OBJ)
 
 re: fclean all
 
