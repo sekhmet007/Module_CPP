@@ -1,0 +1,38 @@
+1. Héritage et Classes de Base/ Dérivées:
+
+Héritage: Dog et Cat héritent de la classe de base Animal.
+Cela signifie qu'ils héritent des propriétés et méthodes de Animal,
+mais peuvent également avoir leurs propres propriétés et comportements spécifiques.
+Classes Dérivées: Dog et Cat sont des classes dérivées qui étendent la classe de base Animal.
+Par exemple, bien que chaque Dog et Cat soit un Animal, ils ont des comportements spécifiques
+qui les distinguent (comme différents sons).
+
+2. Méthodes Virtuelles et Polymorphisme:
+
+Méthodes Virtuelles: Dans la classe Animal, la méthode makeSound() est probablement déclarée
+comme virtuelle. Cela permet aux classes dérivées (Dog et Cat) de fournir leur propre
+implémentation de cette méthode.
+Polymorphisme en Action: Quand un objet de type Dog ou Cat appelle makeSound(),
+la version de cette méthode correspondant à la classe réelle de l'objet
+(et non celle définie dans la classe Animal) est exécutée. C'est-à-dire, si makeSound()
+est appelé sur un objet Dog, c'est la version de makeSound() définie dans Dog qui sera exécutée.
+
+3. Gestion des Objets via des Pointeurs de Classe de Base:
+
+Dans votre programme, vous créez des objets Dog et Cat, mais vous les stockez et
+les gérez via des pointeurs de type Animal. Cela illustre un autre aspect du polymorphisme :
+la capacité de traiter des objets de différentes classes dérivées de manière uniforme via un pointeur de classe de base.
+
+4. Destructeurs Virtuels:
+
+Pour la gestion correcte de la mémoire, les destructeurs dans les classes impliquant le polymorphisme
+doivent être virtuels. Cela garantit que le destructeur approprié est appelé pour les objets de la
+classe dérivée, même lorsqu'ils sont référencés par un pointeur de la classe de base.
+Exemple de Polymorphisme dans main():
+Dans votre main(), lorsque vous créez des instances de Dog et Cat et les stockez dans un tableau
+de pointeurs Animal, puis appelez makeSound() sur ces objets, vous observez le polymorphisme en action.
+Chaque objet appelle la version de makeSound() correspondant à sa classe réelle, bien que le pointeur soit de type Animal.
+
+En résumé, le polymorphisme dans votre exercice permet de traiter différents types d'objets (comme Dog et Cat)
+de manière uniforme à travers une interface commune (Animal). Cela facilite l'écriture de code plus général et flexible,
+qui peut fonctionner avec différents types d'objets sans nécessiter de connaître leur type exact à la compilation.
