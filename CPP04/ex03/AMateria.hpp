@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 10:00:27 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/09 11:46:16 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/09 14:51:33 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,12 @@
 
 #include "Color.hpp"
 #include "ICharacter.hpp"
+
 #include <string>
 #include <iostream>
 
 
-class AMateria
+class AMateria // class Abstraite
 {
 	protected:
 
@@ -31,6 +32,7 @@ class AMateria
 		AMateria(std::string const &type);
 		AMateria &operator=(const AMateria &other);
 		virtual ~AMateria();
+		
 		std::string const &getType() const;//Returns the materia type
 		virtual AMateria *clone() const = 0;
 		virtual void use(ICharacter& target);

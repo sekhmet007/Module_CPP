@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 10:00:44 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/09 11:59:08 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/09 14:53:15 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 /*--constructeur--*/
 AMateria::AMateria(std::string const &type) : type(type) {}
 
-AMateria::AMateria(const AMateria& other) : type(other.type) {}
+AMateria::AMateria(const AMateria &other) : type(other.type) {}
 
-AMateria& AMateria::operator=(const AMateria& other)
+AMateria &AMateria::operator=(const AMateria &other)
 {
 	if (this != &other)
     	{
@@ -35,5 +35,9 @@ std::string const &AMateria::getType() const
 	return (this->type);
 }
 
+void AMateria::use(ICharacter &target)
+{
+	
+}
 
 

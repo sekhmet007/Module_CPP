@@ -1,0 +1,9 @@
+MateriaSource.hpp  :sera une interface (une classe abstraite en C++) 
+définissant les fonctions que toutes les classes de source de matéria 
+doivent implémenter.
+
+MateriaSource.hpp : sera la déclaration de la classe concrète 
+MateriaSource qui implémente l'interface IMateriaSource.
+
+MateriaSource.cpp  : contiendra l'implémentation des méthodes de la 
+classe MateriaSource.

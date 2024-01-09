@@ -6,10 +6,11 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 10:12:22 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/09 12:12:24 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/09 16:15:28 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+//interface Icharacter
 #ifndef ICHARACTER_HPP
 #define ICHARACTER_HPP
 
@@ -31,3 +32,8 @@ class ICharacter
 		virtual void use(int idx, ICharacter &target) = 0;
 };
 #endif
+
+/*-----------------------------information------------------------------*/
+
+/*Une interface c'est une classe ou toutes les méthodes que tu vas 
+déclarer dedans sont virtuelles pures.*/
