@@ -1,0 +1,35 @@
+l'en-tête <stdexcept> en C++ est utilisée pour accéder à un ensemble de classes
+d'exception standard. Cet en-tête fait partie de la bibliothèque standard du C++
+et fournit plusieurs types d'exceptions qui peuvent être utilisées pour signaler
+des erreurs courantes pouvant survenir lors de l'exécution d'un programme.
+
+Voici quelques-unes des classes d'exception définies dans <stdexcept> :
+
+std::exception : C'est la classe de base pour toutes les exceptions standard.
+Elle fournit une méthode membre virtuelle what() qui retourne une chaîne de
+caractères (C-string) indiquant ce qui a causé l'exception.
+
+std::runtime_error : Une classe dérivée de std::exception conçue pour signaler
+des erreurs qui ne sont pas détectées par le compilateur mais se produisent
+pendant l'exécution du programme (erreurs d'exécution).
+
+std::logic_error : Une autre classe dérivée de std::exception utilisée pour
+signaler des erreurs de logique dans le programme, comme des arguments invalides
+ou des opérations non valides.
+
+std::out_of_range : Dérivée de std::logic_error, utilisée pour signaler qu'un
+accès à un élément en dehors d'une plage valide a été tenté (par exemple, accéder
+à un élément hors des limites d'un conteneur).
+
+std::invalid_argument : Également dérivée de std::logic_error, cette classe est
+utilisée pour signaler un argument invalide passé à une méthode ou une fonction.
+
+std::bad_alloc : Une exception spécifique qui est lancée lorsqu'une tentative
+d'allocation de mémoire échoue (par exemple, lorsqu'un new ne peut pas allouer
+suffisamment de mémoire).
+
+Dans le contexte de votre exercice sur les bureaucrates, vous utilisez
+probablement des classes d'exceptions dérivées de std::exception pour
+créer des exceptions personnalisées (GradeTooHighException et GradeTooLowException).
+Ces classes personnalisées peuvent surcharger la méthode what() pour fournir un
+message d'erreur spécifique lorsqu'elles sont capturées dans un bloc try-catch.
