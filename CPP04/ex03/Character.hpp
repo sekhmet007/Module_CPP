@@ -1,35 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.hpp                                            :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 10:10:54 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/10 10:09:05 by ecullier         ###   ########.fr       */
+/*   Created: 2024/01/10 10:14:50 by ecullier          #+#    #+#             */
+/*   Updated: 2024/01/10 11:30:33 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICE_HPP
-#define ICE_HPP
+#ifndef CHARACTER_HPP
+#define CHARACTER_HPP
 
-#include "AMateria.hpp"
 #include "ICharacter.hpp"
+#include "AMateria.hpp"
 #include "Color.hpp"
-
 #include <string>
 #include <iostream>
 
-class Ice : public AMateria
+class Character: public ICharacter
 {
+    private:
+
+        std::string name;
+        AMateria *inventory[4];
+        
 	public:
 
-		Ice();
-		Ice(const Ice &other);
-		Ice &operator=(const Ice &other);
-		virtual ~Ice();
-		
-		virtual Ice *clone() const;
-    	virtual void use(ICharacter &target);
+        Character(std::string name);
+		Character(const Character &other);
+		Character &operator=(const Character &other);
+		virtual ~Character();
+        
+		virtual std::string const &getName() const;
+		virtual void equip(AMateria *m);
+		virtual void unequip(int idx);
+		virtual void use(int idx, ICharacter &target);
 };
 #endif

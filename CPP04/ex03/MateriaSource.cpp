@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 15:03:28 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/09 16:12:07 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/10 12:04:21 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 /*--constructeur--*/
 MateriaSource::MateriaSource()
 {
-        for (int i = 0; i < 4, ++i)
+        for (int i = 0; i < 4; ++i)
         {
-            learnMateria[i] = 0;
+            Materias[i] = 0;
         }
 }
 
@@ -32,13 +32,13 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &other)
     {
         for (int i = 0; i < 4; ++i)
         {
-            if(other.learnMateria[i] != 0)
+            if(other.Materias[i] != 0)
             {
-                this->learnMateria[i] = other.learMateria[i]->clone();
+                this->Materias[i] = other.Materias[i]->clone();
             }
             else
             {
-                this->learnMateria[i] = 0;
+                this->Materias[i] = 0;
             }
         }
     }
@@ -46,13 +46,13 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &other)
 }
 
 /*--destructeur--*/
-MateriSource::~MateriaSource()
+MateriaSource::~MateriaSource()
 {
     for (int i = 0; i < 4; ++i)
     {
-        if (learnMateria[i] != 0)
+        if (Materias[i] != 0)
         {
-            delete learnMateria[i];
+            delete Materias[i];
         }
     }
 }
@@ -62,9 +62,9 @@ void MateriaSource::learnMateria(AMateria *m)
 {
     for (int i = 0; i < 4; ++i)
     {
-        if (materias[i] == NULL)
+        if (Materias[i] == NULL)
         {
-            materias[i] = m->clone();
+            Materias[i] = m->clone();
             std::cout << "Learned Materia of type: " 
                 << m->getType() << std::endl;
             break;
@@ -76,12 +76,12 @@ AMateria *MateriaSource::createMateria(std::string const &type)
 {
     for (int i = 0; i < 4; i++)
     {
-        if (this->materias[i] != 0 && this->materias[i]->getType() == type)
+        if (this->Materias[i] != 0 && this->Materias[i]->getType() == type)
         {
             std::cout << "Creating Materia of type: " << type << std::endl;
-            return (this->materias[i]->clone());
+            return (this->Materias[i]->clone());
         }
     }
-    std::cout << "No Materia of type: " << type << " found" << std::endl;
+    std::cout << RED << "No Materia of type: " << type << " found" << RESET << std::endl;
     return (0);
 }

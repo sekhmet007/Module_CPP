@@ -6,59 +6,66 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 17:13:06 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/08 20:55:22 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/10 13:57:19 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
+#include "AMateria.hpp"
+#include "IMateriaSource.hpp"
+#include "ICharacter.hpp"
+#include "MateriaSource.hpp"
+#include "Character.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
 
 int main()
 {
 
-	std::cout << MAGENTA << "creation et suppression des annimaux." << RESET << std::endl;
+	IMateriaSource* src = new MateriaSource();
+    src->learnMateria(new Ice());
+    src->learnMateria(new Cure());
 
-    	const Animal* dog = new Dog();
-	const Animal* cat = new Cat();
+    ICharacter* me = new Character("me");
+    AMateria* tmp;
 
-	std::cout << RED << dog->getType() << " sound : ";
-	dog->makeSound();
+    // Test de création d'une Materia inconnue
+    tmp = src->createMateria("unknown");
+    if (tmp)
+	{
+        me->equip(tmp);
+    }
+	else
+	{
+        std::cout << "Failed to create unknown Materia." << std::endl;
+    }
 
-	std::cout << GREEN << cat->getType() << " sound : ";
-	cat->makeSound();
+    tmp = src->createMateria("ice");
+    me->equip(tmp);
+    tmp = src->createMateria("cure");
+    me->equip(tmp);
 
-	delete dog;
-	delete cat;
+    // Test de dépassement de l'inventaire
+    tmp = src->createMateria("ice");
+    me->equip(tmp); // Doit échouer car l'inventaire est plein
+	tmp = src->createMateria("Cure");
+    me->equip(tmp);
 
-	std::cout << MAGENTA << "copie et affectation." << RESET << std::endl;
+    ICharacter* bob = new Character("bob");
+    me->use(0, *bob);
+    me->use(1, *bob);
+	me->use(2, *bob);
 
-	Dog originalDog;
-	Dog copyDog(originalDog);
-	Dog assignedDog = originalDog;
+    // Tests avec un index invalide
+    me->use(100, *bob); // Doit afficher un message d'erreur
+    me->unequip(100);   // Doit afficher un message d'erreur
 
-	Cat originalCat;
-	Cat copyCat(originalCat);
-	Cat assignedCat = originalCat;
+    delete bob;
+    delete me;
+    delete src;
 
-	std::cout << RED << "Original Dog: " << originalDog.getType() << " - ";
-	originalDog.makeSound();
-
-	std::cout << RED << "Copied Dog: " << copyDog.getType() << " - ";
-	copyDog.makeSound();
-
-	std::cout << RED << "Assigned Dog: " << assignedDog.getType() << " - ";
-	assignedDog.makeSound();
-
-	std::cout << GREEN << "Original Cat: " << originalCat.getType() << " - ";
-	originalCat.makeSound();
-
-	std::cout << GREEN << "Copied Cat: " << copyCat.getType() << " - ";
-	copyCat.makeSound();
-
-	std::cout << GREEN << "Assigned Cat: " << assignedCat.getType() << " - ";
-	assignedCat.makeSound();
-
-	return (0);
+    return 0;
 
 }

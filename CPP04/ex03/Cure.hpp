@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 10:11:15 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/09 14:47:20 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/10 10:08:26 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,14 @@ class Cure : public AMateria
 		Cure();
 		Cure(const Cure &other);
 		Cure &operator=(const Cure &other);
-		~Cure();
+		virtual ~Cure();
 
-		Cure* clone() const;
-    	void use(ICharacter& target);
+		virtual  Cure *clone() const;
+    	virtual void use(ICharacter& target);
 };
 #endif
+
+/*Ice et Cure herite de AMateriea qui est virtuel pure donc il n est pas obligatoire 
+de noter virtuel devant le destructeur et les fonctions car la classe de base 
+est virtuel donc les classes derivees sont aussi virtuel par heritage.
+on peut les notes pour clarte du programme mais ce n est pas obligatoire.  */

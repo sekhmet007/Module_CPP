@@ -1,4 +1,4 @@
-MateriaSource.hpp  :sera une interface (une classe abstraite en C++) 
+IMateriaSource.hpp  :sera une interface (une classe abstraite en C++) 
 définissant les fonctions que toutes les classes de source de matéria 
 doivent implémenter.
 

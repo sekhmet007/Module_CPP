@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 12:14:34 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/09 16:15:44 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/10 12:23:42 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <string>
 #include <iostream>
 
+class AMateria;//delacaration par anticipation la classe
 
 class IMateriaSource
 {

@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 10:00:44 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/09 14:53:15 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/10 12:25:08 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ std::string const &AMateria::getType() const
 
 void AMateria::use(ICharacter &target)
 {
-	
+	(void)target;
 }
 
 

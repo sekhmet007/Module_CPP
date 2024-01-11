@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 10:11:04 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/09 14:50:40 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/10 09:55:24 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Ice &Ice::operator=(const Ice &other)
 {
     if(this != &other)
     {
-        Amateria::operator=(other);
+        AMateria::operator=(other);
     }
     return (*this);
 }

@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 17:13:06 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/08 20:55:22 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/10 14:04:12 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main()
 
 	std::cout << MAGENTA << "creation et suppression des annimaux." << RESET << std::endl;
 
-    	const Animal* dog = new Dog();
+    const Animal* dog = new Dog();
 	const Animal* cat = new Cat();
 
 	std::cout << RED << dog->getType() << " sound : ";

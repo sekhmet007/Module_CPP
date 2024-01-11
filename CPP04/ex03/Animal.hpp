@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 17:18:22 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/08 21:28:06 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/10 14:03:13 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,5 @@ de base*/
  Quand une fonction membre dans une classe de base est déclarée virtual,
  cela signifie que n'importe quelle classe dérivée peut "redéfinir"
  (ou "surcharger") cette fonction */
-/*classe abstraite: est une classe qui est destinée à être utilisée comme classe de base pour d'autres classes plutôt qu'à être instanciée directement*/
+/*classe abstraite: est une classe qui est destinée à être utilisée comme classe de base 
+pour d'autres classes plutôt qu'à être instanciée directement*/

@@ -6,12 +6,12 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 15:00:00 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/09 15:45:05 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/10 11:49:08 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MATERIASOURCE_HPP
-#defin MATERIASOURCE_HPP
+#define MATERIASOURCE_HPP
 
 #include "IMateriaSource.hpp"
 #include "Color.hpp"
@@ -21,15 +21,15 @@
 
 class MateriaSource : public IMateriaSource
 {
-        pivate:
+        private:
 
-            AMateria *LearnMaterias[4]; 
+            AMateria *Materias[4]; 
             
         public:
 
             MateriaSource();
             MateriaSource(const MateriaSource &other);
-            MateriaSource &operator=(const MaeteriaSource &other);
+            MateriaSource &operator=(const MateriaSource &other);
             virtual ~MateriaSource();
             
             virtual void learnMateria(AMateria*);

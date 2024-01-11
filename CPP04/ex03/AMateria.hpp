@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 10:00:27 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/09 14:51:33 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/10 12:24:40 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <string>
 #include <iostream>
 
+class ICharacter;
 
 class AMateria // class Abstraite
 {
@@ -35,6 +36,6 @@ class AMateria // class Abstraite
 		
 		std::string const &getType() const;//Returns the materia type
 		virtual AMateria *clone() const = 0;
-		virtual void use(ICharacter& target);
+		virtual void use(ICharacter &target);
 };
 #endif
