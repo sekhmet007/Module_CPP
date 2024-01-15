@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 10:11:25 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/10 12:25:42 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/11 17:25:39 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,4 @@ void Cure::use(ICharacter &target)
 {
     std::cout << CYAN << "* heals " << target.getName()
         << "'s wounds *" << RESET << std::endl;
-    
 }

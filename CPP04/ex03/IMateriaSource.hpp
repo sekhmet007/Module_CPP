@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 12:14:34 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/10 12:23:42 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/11 18:46:26 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class IMateriaSource
 {
 	public:
 		virtual ~IMateriaSource() {}
-		
+
 		virtual void learnMateria(AMateria*) = 0;
 		virtual AMateria* createMateria(std::string const & type) = 0;
 };

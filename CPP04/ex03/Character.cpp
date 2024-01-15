@@ -13,7 +13,7 @@
 #include "Character.hpp"
 
 /*--constructeurs--*/
-Character::Character(std::string name): name(name)
+Character::Character(std::string newname): name(newname)
 {
     for (int i = 0; i < 4; ++i)
     {
@@ -69,7 +69,7 @@ Character::~Character()
 /*--fonctions--*/
 std::string const &Character::getName() const
 {
-    return name;
+    return (name);
 }
 
 //equip ajoute une AMateria à l'inventaire.
@@ -95,7 +95,7 @@ void Character::equip(AMateria *m)
 //unequip enlève une AMateria de l'inventaire sans la supprimer
 void Character::unequip(int idx)
 {
-    if (idx >= 0 && idx <= 4)
+    if (idx >= 0 && idx < 4)
     {
         if (inventory[idx] != NULL)
         {
@@ -104,12 +104,12 @@ void Character::unequip(int idx)
         }
         else
         {
-            std::cout << YELLOW << "No Materia to unequip in slot " << idx << "." <<  RESET << std::endl;
+            std::cout << YELLOW << "No Materia to unequip in slot " << idx << "." << RESET << std::endl;
         }
     }
     else
     {
-        std::cout << RED << "Error: Invalid index " << idx << " for unequipping a Materia." << RESET <<std::endl;
+        std::cout << RED << "Error: Invalid index " << idx << " for unequipping a Materia." << RESET << std::endl;
     }
 }
 
@@ -133,4 +133,3 @@ void Character::use(int idx, ICharacter &target)
         std::cout << RED << "Error: Invalid index " << idx << " for using a Materia." << RESET << std::endl;
     }
 }
- 

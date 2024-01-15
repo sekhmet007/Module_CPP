@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 10:11:04 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/10 09:55:24 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/11 20:37:59 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ Ice &Ice::operator=(const Ice &other)
 }
 
 /*--destructeur--*/
-Ice::~Ice() {}
+Ice::~Ice()
+{
+
+}
 
 /*--fonction--*/
 Ice *Ice::clone() const
@@ -39,5 +42,4 @@ void Ice::use(ICharacter &target)
 {
     std::cout << CYAN << "* shoots an ice bolt at "
         << target.getName() << " *" << RESET << std::endl;
-    
 }

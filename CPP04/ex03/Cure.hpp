@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 10:11:15 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/10 10:08:26 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/11 20:35:53 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include "AMateria.hpp"
 #include "ICharacter.hpp"
+#include "MateriaSource.hpp"
 #include "Color.hpp"
 
 #include <string>

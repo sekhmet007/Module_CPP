@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 15:03:28 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/10 12:04:21 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/11 20:04:47 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,25 @@ MateriaSource::MateriaSource()
         }
 }
 
-MateriaSource::MateriaSource(const MateriaSource &other) 
+MateriaSource::MateriaSource(const MateriaSource &other)
 {
         *this = other;
 }
 
 MateriaSource &MateriaSource::operator=(const MateriaSource &other)
 {
+   {
     if (this != &other)
     {
+        // Supprime les AMateria existants
         for (int i = 0; i < 4; ++i)
         {
-            if(other.Materias[i] != 0)
+            delete Materias[i];
+        }
+        // Copie les AMateria de rhs
+        for (int i = 0; i < 4; ++i)
+        {
+            if (other.Materias[i] != 0)
             {
                 this->Materias[i] = other.Materias[i]->clone();
             }
@@ -42,7 +49,8 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &other)
             }
         }
     }
-    return (*this);
+    return *this;
+}
 }
 
 /*--destructeur--*/
@@ -65,8 +73,7 @@ void MateriaSource::learnMateria(AMateria *m)
         if (Materias[i] == NULL)
         {
             Materias[i] = m->clone();
-            std::cout << "Learned Materia of type: " 
-                << m->getType() << std::endl;
+            std::cout << "Learned Materia of type: " << m->getType() << std::endl;
             break;
         }
     }
