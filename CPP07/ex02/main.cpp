@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:37:29 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/15 21:44:09 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/16 17:06:19 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,69 +15,71 @@
 
 int main(int, char**)
 {
-    std::cout << "Création d'un tableau d'entiers de taille 5." << std::endl;
-	Array<int> intArray(5);
-
-	std::cout << "\nAffectation de valeurs aux éléments du tableau." << std::endl;
-	for (unsigned int i = 0; i < intArray.getSize(); i++)
-	{
-		intArray[i] = i * 10;
-		std::cout << "intArray[" << i << "] = " << intArray[i] << std::endl;
-	}
-
-	std::cout << "\nTest d'accès à un élément valide (index 3)." << std::endl;
-	std::cout << "Element at index 3: " << intArray[3] << std::endl;
-
-	std::cout << "\nTest d'accès à un élément hors limites (index 6)." << std::endl;
-	try
-	{
-		std::cout << "Element at index 6: " << intArray[6] << std::endl;
-	}
-	catch (const std::out_of_range& e)
-	{
-		std::cerr << "Exception caught: " << e.what() << std::endl;
-	}
-
-	std::cout << "\nTest de copie de tableau et d'indépendance des copies." << std::endl;
-	Array<int> copiedArray = intArray;
-	copiedArray[0] = 100;
-	std::cout << "Original array element at index 0: " << intArray[0] << std::endl;
-	std::cout << "Copied array element at index 0: " << copiedArray[0] << std::endl;
-
-    // Test de construction par défaut
-    std::cout << "Test de construction par défaut." << std::endl;
-    Array<int> defaultArray;
-    std::cout << "Taille du tableau par défaut : " << defaultArray.getSize() << std::endl;
-
-    // Test des éléments initialisés par défaut
-    std::cout << "\nTest des éléments initialisés par défaut." << std::endl;
-    Array<int> defaultInitArray(5);
-    for (unsigned int i = 0; i < defaultInitArray.getSize(); i++)
+// Test avec un tableau d'entiers
+    std::cout << "Test avec un tableau d'entiers:" << std::endl;
+    Array<int> intArray(5);
+    for (unsigned int i = 0; i < intArray.getSize(); ++i)
     {
-        std::cout << "defaultInitArray[" << i << "] = " << defaultInitArray[i] << std::endl;
+        intArray[i] = i * 10;
+        std::cout << intArray[i] << " ";
+    }
+    std::cout << std::endl;
+
+// Test de l'accès à un élément valide
+    std::cout << "\nTest d'accès à un élément valide:" << std::endl;
+    try
+    {
+        std::cout << "Element at index 2: " << intArray[2] << std::endl;
+    }
+    catch(const std::out_of_range &e)
+    {
+        std::cerr << "Error: " << e.what() << std::endl;
     }
 
-    // Test de profondeur de copie
-    std::cout << "\nTest de profondeur de copie." << std::endl;
-    Array<int> deepCopyArray(5);
-    for (unsigned int i = 0; i < deepCopyArray.getSize(); i++)
-    {
-        deepCopyArray[i] = i;
-    }
-    Array<int> anotherArray = deepCopyArray; // Copie
-    anotherArray[0] = 100;
-    std::cout << "Valeur dans deepCopyArray après modification de anotherArray : " << deepCopyArray[0] << std::endl;
+// Test du constructeur par défaut et des éléments initialisés par défaut
+    std::cout << "\nTest du constructeur par défaut et des éléments initialisés par défaut:" << std::endl;
+    Array<double> defaultArray;
+    std::cout << "Taille du tableau par défaut: " << defaultArray.getSize() << std::endl;
 
-    // Test avec différents types de données
-    std::cout << "\nTest avec différents types de données." << std::endl;
+// Test de copie d'un tableau
+    std::cout << "\nTest de copie d'un tableau:" << std::endl;
+    Array<int> copiedArray = intArray;
+    for (unsigned int i = 0; i < copiedArray.getSize(); ++i)
+    {
+        std::cout << copiedArray[i] << " ";
+    }
+    std::cout << std::endl;
+
+// Test de profondeur de copie
+    std::cout << "\nTest de profondeur de copie:" << std::endl;
+    copiedArray[0] = 1000;
+    std::cout << "Premier élément du tableau original: " << intArray[0] << std::endl;
+    std::cout << "Premier élément du tableau copié: " << copiedArray[0] << std::endl;
+
+// Test avec un autre type de données (std::string)
+    std::cout << "\nTest avec std::string:" << std::endl;
     Array<std::string> stringArray(3);
-    stringArray[0] = "Bonjour";
-    stringArray[1] = "C++";
-    stringArray[2] = "Array";
-    for (unsigned int i = 0; i < stringArray.getSize(); i++)
+    stringArray[0] = "Hello";
+    stringArray[1] = "World";
+    stringArray[2] = "Test";
+    for (unsigned int i = 0; i < stringArray.getSize(); ++i)
     {
-        std::cout << "stringArray[" << i << "] = " << stringArray[i] << std::endl;
+        std::cout << stringArray[i] << " ";
     }
+    std::cout << std::endl;
+
+// Test d'accès hors limites
+    std::cout << "\nTest d'accès hors limites:" << std::endl;
+    try
+    {
+        std::cout << intArray[10] << std::endl;
+    }
+    catch(const std::out_of_range &e)
+    {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
+
+//main de base
     Array<int> numbers(MAX_VAL);
     int* mirror = new int[MAX_VAL];
     srand(time(NULL));

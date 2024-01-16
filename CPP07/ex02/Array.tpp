@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:40:22 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/15 21:41:33 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/16 17:04:58 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Array<T>::Array(unsigned int n) : _elements(new T[n]), _size(n) {}
 
 // Constructeur de copie
 template <typename T>
-Array<T>::Array(const Array<T>& other) : _elements(new T[other._size]), _size(other._size)
+Array<T>::Array(const Array<T> &other) : _elements(new T[other._size]), _size(other._size)
 {
     for (unsigned int i = 0; i < _size; ++i)
     {
@@ -38,7 +38,7 @@ Array<T>::~Array()
 
 // Opérateur d'assignation
 template <typename T>
-Array<T>& Array<T>::operator=(const Array<T>& other)
+Array<T> &Array<T>::operator=(const Array<T> &other)
 {
     if (this != &other)
     {
@@ -50,34 +50,34 @@ Array<T>& Array<T>::operator=(const Array<T>& other)
             _elements[i] = other._elements[i];
         }
     }
-    return *this;
+    return (*this);
 }
 
 // Accès aux éléments
 template <typename T>
-T& Array<T>::operator[](unsigned int index)
+T &Array<T>::operator[](unsigned int index)
 {
     if (index >= _size)
     {
         throw std::out_of_range("Index out of bounds");
     }
-    return _elements[index];
+    return (_elements[index]);
 }
 
 template <typename T>
-const T& Array<T>::operator[](unsigned int index) const
+const T &Array<T>::operator[](unsigned int index) const
 {
     if (index >= _size)
     {
         throw std::out_of_range("Index out of bounds");
     }
-    return _elements[index];
+    return (_elements[index]);
 }
 
 // Obtention de la taille de l'Array
 template <typename T>
 unsigned int Array<T>::getSize() const
 {
-    return _size;
+    return (_size);
 }
 

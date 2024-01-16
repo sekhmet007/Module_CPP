@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 16:11:40 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/15 21:40:34 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/16 16:22:07 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ class Array
 		Array &operator=(const Array &other);
 		~Array();
 
-		T& operator[](unsigned int index);
-		const T& operator[](unsigned int index) const;
+		T &operator[](unsigned int index);
+		const T &operator[](unsigned int index) const;
 		unsigned int getSize() const;
 
 };
