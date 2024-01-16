@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 17:45:42 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/16 14:37:02 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/16 15:57:52 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ ScalarConverter::ScalarConverter(const ScalarConverter&) {}
 
 ScalarConverter &ScalarConverter::operator=(const ScalarConverter&)
 {
-	return *this;
+	return (*this);
 }
 
 /*--DESTRUCTEUR--*/
@@ -79,7 +79,7 @@ double ScalarConverter::convertToDouble(const std::string &literal)
     {
         return handleSpecialValues(literal);
     }
-    catch (const std::runtime_error&)
+    catch(const std::runtime_error &e)
     {
         // Continue with normal conversion
     }
@@ -116,7 +116,7 @@ void ScalarConverter::convert(const std::string &literal)
             int i = convertToInt(value);
             std::cout << i << std::endl;
         }
-	    catch (std::runtime_error &e)
+	    catch(std::runtime_error &e)
 	    {
             std::cout << e.what() << std::endl;
         }
@@ -124,7 +124,7 @@ void ScalarConverter::convert(const std::string &literal)
         std::cout << "float: " << convertToFloat(value) << "f" << std::endl;
         std::cout << "double: " << value << std::endl;
     }
-    catch (std::runtime_error& e)
+    catch(std::runtime_error &e)
     {
         std::cerr << "Error: " << e.what() << std::endl;
     }

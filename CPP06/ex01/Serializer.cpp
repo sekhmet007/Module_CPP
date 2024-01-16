@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 21:20:33 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/16 14:42:21 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/16 16:07:15 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ Serializer::~Serializer() {}
 /*--FONCTIONS--*/
 uintptr_t Serializer::serialize(Data*ptr)
 {
-    return reinterpret_cast<uintptr_t >(ptr);
+    return (reinterpret_cast<uintptr_t >(ptr));
 }
 
 Data* Serializer::deserialize(uintptr_t raw)
 {
-    return reinterpret_cast<Data*>(raw);
+    return (reinterpret_cast<Data*>(raw));
 }
