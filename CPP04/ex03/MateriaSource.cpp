@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 15:03:28 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/11 20:04:47 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/15 20:54:19 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &other)
             }
         }
     }
-    return *this;
+    return (*this);
 }
 }
 

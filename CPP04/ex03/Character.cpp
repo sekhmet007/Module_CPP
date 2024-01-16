@@ -107,12 +107,7 @@ void Character::unequip(int idx)
             std::cout << YELLOW << "No Materia to unequip in slot " << idx << "." << RESET << std::endl;
         }
     }
-    else
-    {
-        std::cout << RED << "Error: Invalid index " << idx << " for unequipping a Materia." << RESET << std::endl;
-    }
 }
-
 //use utilise la AMateria spécifiée, si elle existe, sur la cible donnée
 void Character::use(int idx, ICharacter &target)
 {
