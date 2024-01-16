@@ -6,13 +6,13 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 17:19:05 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/12 19:51:47 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/16 09:45:28 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-
+/*--constructeur--*/
 Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name), _grade(other._grade)
 {
 }
@@ -24,11 +24,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 		this->_name = other._name;
 		this->_grade = other._grade;
 	}
-	return *this;
-}
-
-Bureaucrat::~Bureaucrat()
-{
+	return (*this);
 }
 
 Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name), _grade(grade)
@@ -37,6 +33,12 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name), _grade
     if (grade > 150) throw GradeTooLowException();
 }
 
+/*--destructeur--*/
+Bureaucrat::~Bureaucrat()
+{
+}
+
+/*--Fonctions--*/
 const std::string &Bureaucrat::getName() const
 {
 	return (_name);
