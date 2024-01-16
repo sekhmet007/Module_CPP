@@ -1,0 +1,31 @@
+
+Une classe abstraite en programmation orientée objet, en particulier en C++,
+est une classe qui est destinée à être utilisée comme classe de base pour d'autres classes
+plutôt qu'à être instanciée directement. Les caractéristiques principales d'une classe abstraite sont les suivantes :
+
+1 Méthodes Virtuelles Pures :
+
+Une classe abstraite contient au moins une méthode virtuelle pure.
+Une méthode virtuelle pure est déclarée en assignant 0 à sa déclaration, comme suit :
+virtual void maMethodeVirtuellePure() = 0;
+Cette méthode doit être implémentée par toute classe dérivée non abstraite,
+fournissant ainsi un comportement spécifique à cette classe dérivée.
+
+2 Pas d'Instances Directes :
+
+Vous ne pouvez pas créer d'instance d'une classe abstraite directement.
+Elle sert de modèle ou de contrat pour ses classes dérivées. Les classes dérivées doivent implémenter
+toutes les méthodes virtuelles pures de la classe de base abstraite pour pouvoir être instanciées.
+
+3 Utilisation comme Type de Base :
+
+Les classes abstraites sont couramment utilisées comme types de base dans les hiérarchies de classes.
+Elles définissent une interface commune pour toutes les classes dérivées. Cela permet le polymorphisme,
+où un pointeur ou une référence à la classe de base peut réellement référer à un objet d'une classe dérivée.
+
+4 Polymorphisme :
+
+Les classes abstraites permettent un polymorphisme efficace, car elles peuvent être utilisées
+pour définir des interfaces avec des méthodes virtuelles pures que les classes dérivées doivent implémenter.
+Cela garantit que toutes les classes dérivées suivent un modèle commun, tout en ayant la liberté de fournir
+leur propre implémentation des méthodes.
