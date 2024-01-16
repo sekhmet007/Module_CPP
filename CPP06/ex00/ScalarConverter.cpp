@@ -6,12 +6,13 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 17:45:42 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/15 14:46:02 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/16 14:37:02 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
+/*--CONSTRUCTEUR--*/
 ScalarConverter::ScalarConverter() {}
 
 ScalarConverter::ScalarConverter(const ScalarConverter&) {}
@@ -21,8 +22,10 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter&)
 	return *this;
 }
 
+/*--DESTRUCTEUR--*/
 ScalarConverter::~ScalarConverter() {}
 
+/*--FONCTIONS--*/
 char ScalarConverter::convertToChar(double value)
 {
     if (std::isnan(value) || value < std::numeric_limits<char>::min() || value > std::numeric_limits<char>::max())
