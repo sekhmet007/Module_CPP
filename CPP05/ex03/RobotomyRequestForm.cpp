@@ -6,12 +6,13 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 16:48:40 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/13 20:27:05 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/16 13:43:01 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
+/*--CONSTRUCTEUR--*/
 RobotomyRequestForm::RobotomyRequestForm(const std::string &target)
 : AForm("RobotomyRequestForm", 72, 45), _target(target) {}
 
@@ -25,8 +26,10 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &o
     return (*this);
 }
 
+/*--DESTRUCTEUR--*/
 RobotomyRequestForm::~RobotomyRequestForm() {}
 
+/*--FONCTION--*/
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
     if (!getIsSigned())
@@ -34,14 +37,14 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor) const
     if (executor.getGrade() > getGradeRequiredToExecute())
         throw AForm::GradeTooLowException();
 
-    std::cout << "Drilling noises..." << std::endl;
+    std::cout << RED << "Drilling noises..." << RESET << std::endl;
     srand(time(NULL));
     if (rand() % 2)
     {
-        std::cout << _target << " has been robotomized successfully." << std::endl;
+        std::cout << MAGENTA<< _target << " has been robotomized successfully." << RESET << std::endl;
     }
     else
     {
-        std::cout << "Robotomy of " << _target << " failed." << std::endl;
+        std::cout<< BLUE << "Robotomy of " << _target << " failed." << RESET <<std::endl;
     }
 }

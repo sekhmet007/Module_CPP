@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 20:33:08 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/13 20:43:23 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/16 11:47:49 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ class Intern
 
     		Intern();
     		Intern(const Intern &other);
-   		Intern& operator=(const Intern &other);
+   		Intern &operator=(const Intern &other);
     		~Intern();
 
-    		AForm* makeForm(const std::string &formName, const std::string &target) const;
+    		AForm *makeForm(const std::string &formName, const std::string &target) const;
 };
 
 #endif

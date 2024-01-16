@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 18:18:28 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/12 20:15:44 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/16 11:37:38 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,13 @@ class Form
 		~Form();// destructeur
 
 		Form(const std::string &name, int gadeToSign, int gradeToExecute);
+
 		class GradeTooHighException: public std::exception
 		{
 			public:
 				const char *what() const throw()
 				{
-            				return ("Grade too high");
+            				return ("Grade too high\n");
         			}
 		};
 
@@ -50,7 +51,7 @@ class Form
 			public:
 				const char *what() const throw()
 				{
-            				return ("Grade too low");
+            				return ("Grade too low\n");
         			}
 		};
 
@@ -67,3 +68,10 @@ class Form
 std::ostream &operator<<(std::ostream &os, const Form &form);
 
 #endif
+/*----------------------Informations-----------------------------------------*/
+/*Accesseurs (Getters) : Des méthodes utilisées pour accéder aux données encapsulées
+dans une classe. Les accesseurs permettent de lire les valeurs des variables membres
+privées ou protégées d'une classe sans modifier ces valeurs. Ils sont souvent
+utilisés dans le cadre de l'encapsulation, un principe fondamental de la programmation
+orientée objet qui consiste à masquer les détails internes d'une classe et à exposer
+uniquement ce qui est nécessaire à l'extérieur.*/

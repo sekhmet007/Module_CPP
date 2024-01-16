@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 18:18:28 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/13 17:40:14 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/16 13:57:36 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,13 @@ class AForm
 		virtual ~AForm();// destructeur
 
 		AForm(const std::string &name, int gadeToSign, int gradeToExecute);
+
 		class FormNotSignedException: public std::exception
 		{
 			public:
 				const char *what() const throw()
 				{
-            				return ("Form not signed");
+            				return ("Form not signed\n");
         			}
 		};
 
@@ -51,7 +52,7 @@ class AForm
 			public:
 				const char *what() const throw()
 				{
-            				return ("Grade too high");
+            				return ("Grade too high\n");
         			}
 		};
 
@@ -60,13 +61,13 @@ class AForm
 			public:
 				const char *what() const throw()
 				{
-            				return ("Grade too low");
+            				return ("Grade too low\n");
         			}
 		};
 
 		// Méthode virtuelle pure
 		virtual void execute(Bureaucrat const &executor) const = 0;
-		// Accesseurs
+		// Accesseurs pour atteindre les var privee
     		const std::string &getName() const;
     		bool getIsSigned() const;
     		int getGradeRequiredToSign() const;

@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 17:19:21 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/16 10:05:59 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/16 11:02:42 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,15 @@
 
 int	main()
 {
-	std::cout << YELLOW << "Test des Rank\n" << RESET << std::endl;
+
  	try
 	{
+        std::cout << YELLOW << "Test des Rank\n" << RESET << std::endl;
 		Bureaucrat highRank("High Rank", 0); // Devrait lancer GradeTooHighException
 	}
     catch (const Bureaucrat::GradeTooHighException &e)
 	{
-        std::cerr  << CYAN << "Exception caught: " << e.what() << RESEST << std::endl;
+        std::cerr  << CYAN << "Exception caught: " << e.what() << RESET << std::endl;
     }
 
     try
@@ -61,11 +62,10 @@ int	main()
 	{
         std::cerr << CYAN << "Unexpected exception: " << e.what() << RESET << std::endl;
     }
-
-	std::cout << YELLOW << "Test de depassement des limites\n" << RESET << std::endl;
-
     try
 	{
+        std::cout << YELLOW << "Test de depassement des limites\n" << RESET << std::endl;
+
         Bureaucrat veryHighRank("Very High Rank", 2);
         std::cout << RED << veryHighRank << RESET << std::endl;
 

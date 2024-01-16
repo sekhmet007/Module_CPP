@@ -6,13 +6,14 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 16:49:04 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/13 20:28:54 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/16 14:00:47 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PRESIDENTIALPARDONFORM_HPP
 #define PRESIDENTIALPARDONFORM_HPP
 
+#include "Color.hpp"
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 #include <string>

@@ -6,12 +6,13 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 16:49:11 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/13 20:29:11 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/16 13:42:19 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
+/*--CONSTRUCTEUR--*/
 PresidentialPardonForm::PresidentialPardonForm(const std::string &target)
 : AForm("PresidentialPardonForm", 25, 5), _target(target) {}
 
@@ -22,11 +23,13 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 {
     AForm::operator=(other);
     _target = other._target;
-    return *this;
+    return (*this);
 }
 
+/*--DESTRUCTEUR--*/
 PresidentialPardonForm::~PresidentialPardonForm() {}
 
+/*--FONCTIONS--*/
 void PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
     if (!getIsSigned())
@@ -34,5 +37,5 @@ void PresidentialPardonForm::execute(Bureaucrat const &executor) const
     if (executor.getGrade() > getGradeRequiredToExecute())
         throw AForm::GradeTooLowException();
 
-    std::cout << _target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+    std::cout << GREEN << _target << " has been pardoned by Zaphod Beeblebrox." << RESET <<std::endl;
 }

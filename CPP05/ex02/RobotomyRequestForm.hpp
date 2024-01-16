@@ -6,13 +6,14 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 16:48:30 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/13 20:26:33 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/16 14:00:54 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ROBOTOMYREQUESTFORM_HPP
 #define ROBOTOMYREQUESTFORM_HPP
 
+#include "Color.hpp"
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 #include <string>

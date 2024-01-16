@@ -6,13 +6,14 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 16:47:56 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/13 20:14:09 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/16 14:00:57 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SHRUBBERYCREATIONFORM_HPP
 #define SHRUBBERYCREATIONFORM_HPP
 
+#include "Color.hpp"
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 #include <fstream>

@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 17:18:53 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/12 20:18:36 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/16 11:14:32 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define BUREAUCRAT_HPP
 
 #include "Form.hpp"
+#include "Color.hpp"
 #include <string>
 #include <iostream>
 #include <stdexcept>

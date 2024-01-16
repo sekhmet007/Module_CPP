@@ -6,13 +6,14 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 18:18:44 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/12 20:34:39 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/16 11:43:25 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
+/*--CONSTRUCTEUR--*/
 AForm::AForm(const std::string &name, int gradeToSign, int gradeToExecute)
 : _name(name), _isSigned(false), _gradeRequiredToSign(gradeToSign),
 	_gradeRequiredToExecute(gradeToExecute)
@@ -40,12 +41,15 @@ AForm &AForm::operator=(const AForm &other)
     return (*this);
 }
 
+/*--DESTRUCTEUR--*/
 AForm::~AForm() {}
 
 const std::string &AForm::getName() const
 {
     return (_name);
 }
+
+/*--FONCTIONS--*/
 
 bool AForm::getIsSigned() const
 {

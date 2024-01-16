@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 17:19:21 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/13 20:42:46 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/16 13:53:13 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 int	main()
 {
-	Bureaucrat highRank("Alice", 1);
+	    Bureaucrat highRank("Alice", 1);
     	Bureaucrat lowRank("Bob", 150);
     	Intern someRandomIntern;
 
@@ -28,43 +28,47 @@ int	main()
         AForm *form;
 
         // Intern crée un ShrubberyCreationForm
+        std::cout << YELLOW << "\nIntern crée un ShrubberyCreationForm\n" << RESET << std::endl;
         form = someRandomIntern.makeForm("shrubbery creation", "home");
         if (form)
-	{
+	    {
             highRank.signForm(*form);
             highRank.executeForm(*form);
             delete form;
         }
 
         // Intern crée un RobotomyRequestForm
+        std::cout << YELLOW << "\nIntern crée un RobotomyRequestForm\n" << RESET << std::endl;
         form = someRandomIntern.makeForm("robotomy request", "Bender");
         if (form)
-	{
+	    {
             highRank.signForm(*form);
             highRank.executeForm(*form);
             delete form;
         }
 
         // Intern crée un PresidentialPardonForm
+        std::cout << YELLOW << "\nIntern crée un PresidentialPardonForm\n" << RESET << std::endl;
         form = someRandomIntern.makeForm("presidential pardon", "Zaphod");
         if (form)
-	{
+	    {
             highRank.signForm(*form);
             highRank.executeForm(*form);
             delete form;
         }
 
         // Tentative de création d'un formulaire inconnu
+        std::cout << YELLOW << "\nTentative de création d'un formulaire inconnu\n" << RESET << std::endl;
         form = someRandomIntern.makeForm("unknown form", "UnknownTarget");
         if (form)
-	{
+	    {
             delete form;
         }
 
     }
-    catch (const std::exception& e)
+    catch(const std::exception &e)
     {
-        std::cerr << "Exception caught: " << e.what() << std::endl;
+        std::cerr << CYAN << "Exception caught: " << e.what() << RESET << std::endl;
     }
 
     return 0;

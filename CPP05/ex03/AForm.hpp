@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 18:18:28 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/13 17:40:14 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/16 11:41:56 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ class AForm
 		virtual ~AForm();// destructeur
 
 		AForm(const std::string &name, int gadeToSign, int gradeToExecute);
+
 		class FormNotSignedException: public std::exception
 		{
 			public:

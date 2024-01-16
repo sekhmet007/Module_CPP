@@ -6,12 +6,13 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 20:33:05 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/13 20:44:24 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/16 11:49:31 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
 
+/*--CONSTRUCTEUR--*/
 Intern::Intern() {}
 
 Intern::Intern(const Intern& other)
@@ -25,11 +26,13 @@ Intern& Intern::operator=(const Intern& other)
 	return (*this);
 }
 
+/*--DESTRUCTEUR--*/
 Intern::~Intern() {}
 
-AForm* Intern::makeForm(const std::string& formName, const std::string& target) const
+/*--FONCTION--*/
+AForm *Intern::makeForm(const std::string &formName, const std::string &target) const
 {
-    AForm* form = nullptr;
+    AForm *form = nullptr;
 
     if (formName == "shrubbery creation")
     {
@@ -45,9 +48,9 @@ AForm* Intern::makeForm(const std::string& formName, const std::string& target) 
     }
     else
     {
-        std::cerr << "Intern cannot create '" << formName << "' form because it is unknown." << std::endl;
-        return nullptr;
+        std::cerr << CYAN << "Intern cannot create '" << formName << "' form because it is unknown." << RESET << std::endl;
+        return (nullptr);
     }
-    std::cout << "Intern creates " << formName << std::endl;
+    std::cout << GREEN << "Intern creates " << formName << RESET << std::endl;
     return (form);
 }

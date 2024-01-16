@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 17:18:53 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/13 16:56:38 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/16 13:59:46 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ class Bureaucrat
 			public:
 				const char *what() const throw()
 				{
-            				return ("Grade too high");
+            				return ("Grade too high\n");
         			}
 		};
 
@@ -56,12 +56,12 @@ class Bureaucrat
 			public:
 				const char *what() const throw()
 				{
-            				return ("Grade too low");
+            				return ("Grade too low\n");
         			}
 		};
 
 };
-std::ostream& operator<<(std::ostream &os, const Bureaucrat &bureaucrat);
+std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat);
 
 #endif
 
