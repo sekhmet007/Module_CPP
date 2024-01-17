@@ -1,0 +1,71 @@
+Dans ce programme :
+
+La fonction generate crée de manière aléatoire une instance de A, B, ou C
+et la retourne comme un pointeur sur Base.
+Les fonctions identify déterminent le type de l'objet pointé en utilisant
+dynamic_cast. La première fonction `
+identify utilise un pointeur (Base* p) et vérifie le type dynamique de l'objet
+pointé. Si le dynamic_cast` réussit, cela signifie que le pointeur est bien de ce type.
+
+La seconde fonction identify utilise une référence (Base& p) et suit une
+approche similaire, mais avec des références. Les blocs try et catch sont utilisés
+pour gérer les exceptions std::bad_cast lancées lorsque le dynamic_cast échoue.
+Dans le main, nous générons plusieurs objets de type Base, mais qui sont en
+réalité des instances de A, B, ou C. Puis, nous utilisons les deux versions de
+la fonction identify pour déterminer leur type réel.
+Points Importants
+Polymorphisme et Dynamic Cast : L'usage du dynamic_cast permet de déterminer le
+type dynamique d'un pointeur ou d'une référence dans une hiérarchie de classe polymorphe.
+Gestion de la Mémoire : Chaque objet créé par generate est alloué dynamiquement,
+donc nous devons nous assurer de libérer cette mémoire avec delete.
+Génération Aléatoire : La fonction generate utilise rand() pour sélectionner
+aléatoirement le type d'objet à créer. La graine aléatoire est initialisée
+une fois avec srand(time(NULL)).
+Éviter std::typeinfo : Comme l'usage de std::typeinfo est interdit dans cet
+exercice, dynamic_cast fournit une alternative pour déterminer le type d'un
+objet à l'exécution.
+
+Points Importants
+Polymorphisme et Dynamic Cast : L'usage du dynamic_cast permet de déterminer
+le type dynamique d'un pointeur ou d'une référence dans une hiérarchie de classe
+polymorphe.
+
+Gestion de la Mémoire : Chaque objet créé par generate est alloué dynamiquement,
+donc nous devons nous assurer de libérer cette mémoire avec delete.
+
+Génération Aléatoire : La fonction generate utilise rand() pour sélectionner
+aléatoirement le type d'objet à créer. La graine aléatoire est initialisée une
+fois avec srand(time(NULL)).
+
+Éviter std::typeinfo : Comme l'usage de std::typeinfo est interdit dans cet exercice,
+dynamic_cast fournit une alternative pour déterminer le type d'un objet à l'exécution
+
+dynamic_cast est utilisé principalement pour la conversion sécurisée des pointeurs
+et des références au sein d'une hiérarchie de classes héritées. Il est particulièrement
+utile dans les situations où vous avez besoin de déterminer le type dynamique d'un objet
+à l'exécution.
+
+Par exemple, si vous avez une classe de base Base et des classes dérivées Derived1 et
+Derived2, vous pouvez utiliser dynamic_cast pour déterminer de manière sûre si un pointeur
+vers Base pointe réellement sur un objet de type Derived1 ou Derived2.
+
+class Base
+{
+	public:
+    		virtual ~Base() {}  // Nécessaire pour le polymorphisme sécurisé
+};
+
+class Derived1 : public Base
+{
+    // ...
+};
+
+class Derived2 : public Base
+{
+    // ...
+};
+
+Base* b = new Derived1();
+Derived1* d1 = dynamic_cast<Derived1*>(b);  // Réussit si b est réellement un Derived1
+Derived2* d2 = dynamic_cast<Derived2*>(b);  // Échoue et retourne NULL si b
+n'est pas un Derived2
