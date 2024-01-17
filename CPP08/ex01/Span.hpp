@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 18:20:20 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/16 19:37:35 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/17 11:02:19 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 #include <vector>
 #include <ctime>
 #include <cstdlib>
+#include <algorithm>
+#include <stdexcept>
 
 class Span
 {

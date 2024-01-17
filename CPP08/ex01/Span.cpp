@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 18:20:29 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/16 19:33:41 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/17 11:13:00 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,18 +76,6 @@ int Span::longestSpan()
     std::sort(sortedNumbers.begin(), sortedNumbers.end());
     int longest = sortedNumbers.back() - sortedNumbers.front();
     return (longest);
-}
-
-void Span::addNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end)
-{
-    size_t numToAdd = std::distance(begin, end);
-
-    if (_numbers.size() + numToAdd > _NbrMax)
-    {
-        throw std::overflow_error("Adding too many numbers to Span");
-    }
-
-    _numbers.insert(_numbers.end(), begin, end);
 }
 
 
