@@ -5,24 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 20:42:47 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/18 15:24:22 by ecullier         ###   ########.fr       */
+/*   Created: 2024/01/18 16:11:01 by ecullier          #+#    #+#             */
+/*   Updated: 2024/01/18 16:17:18 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "BitcoinExchange.hpp"
+#include "RPN.hpp"
 
-int main(int argc, char *argv[])
+
+int main(int argc, char* argv[])
 {
-    // Vérifier les arguments et exécuter le programme
     if (argc != 2)
     {
-        std::cerr << "Usage: ./btc <input file>" << std::endl;
+        std::cerr << "Usage: ./RPN <expression>" << std::endl;
         return 1;
     }
 
-    BitcoinExchange btc("data.csv");
-    btc.evaluateBitcoinValues(argv[1]);
+    RPN calculator;
+    try
+    {
+        int result = calculator.evaluate(argv[1]);
+        std::cout << result << std::endl;
+    }
+    catch (const std::exception& e)
+    {
+        std::cerr << "Error: " << e.what() << std::endl;
+        return 1;
+    }
 
     return 0;
 }

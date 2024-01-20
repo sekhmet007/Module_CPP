@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 20:44:36 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/17 21:20:26 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/18 16:11:24 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ class BitcoinExchange
 {
 	private:
 
-    		std::vector<BitcoinData> bitcoinData;
-		void readBitcoinData(const std::string &bitcoinDataFile);
+		std::map<std::string, float> exchangeRates;
+		std::string trim(const std::string &str);
 
 	public:
 
@@ -43,9 +43,10 @@ class BitcoinExchange
     		~BitcoinExchange();
 
     		void evaluateBitcoinValues(const std::string &inputFilename);
-		void readInputFile(const std::string &inputFilename);
-		bool isValidDate(const std::string &dateStr);
-		bool isValidValue(const std::string& valueStr);
+        	bool isValidDate(const std::string &dateStr);
+        	bool isValidValue(const std::string &valueStr);
+        	float getClosestExchangeRate(const std::string &date);
+
 };
 
 #endif

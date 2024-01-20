@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 20:44:17 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/17 21:22:51 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/18 16:11:30 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,144 +15,144 @@
 // Constructeur par défaut
 BitcoinExchange::BitcoinExchange() {}
 
-// Constructeur prenant le nom du fichier BitcoinData
-BitcoinExchange::BitcoinExchange(const std::string& bitcoinDataFile)
+BitcoinExchange::BitcoinExchange(const BitcoinExchange& other) : exchangeRates(other.exchangeRates)
 {
-    readBitcoinData(bitcoinDataFile);
+}
+BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other)
+{
+	if (this != &other)
+	{
+		exchangeRates = other.exchangeRates;
+	}
+	return *this;
 }
 
-// Destructeur
-BitcoinExchange::~BitcoinExchange() {}
+BitcoinExchange::~BitcoinExchange(){}
 
+
+// Constructeur, lire le fichier CSV
+BitcoinExchange::BitcoinExchange(const std::string &bitcoinDataFile)
+{
+    std::ifstream file(bitcoinDataFile.c_str());
+    std::string line;
+    std::getline(file, line);
+    while (std::getline(file, line))
+    {
+        std::istringstream iss(line);
+        std::string date;
+        float rate;
+        std::getline(iss, date, ',');
+        iss >> rate; // Lire le taux après la virgule
+        exchangeRates[date] = rate;
+        //std::cout << "Date lue: " << date << ", Taux: " << rate << std::endl;
+    }
+}
+
+// Méthode pour lire et évaluer les valeurs du fichier d'entrée
+void BitcoinExchange::evaluateBitcoinValues(const std::string &inputFilename)
+{
+    std::ifstream file(inputFilename.c_str());
+
+    // Vérifier si le fichier peut être ouvert
+    if (!file)
+    {
+        std::cout << "Error: could not open file." << std::endl;
+        return;
+    }
+    if (!file)
+    {
+        std::cout << "Error: could not open file." << std::endl;
+        return;
+    }
+    std::string line;
+    std::getline(file, line);
+    while (std::getline(file, line))
+    {
+        std::istringstream iss(line);
+        std::string date, valueStr;
+        if (!std::getline(iss, date, '|') || !std::getline(iss, valueStr))
+        {
+            std::cout << "Error: bad input => " << line << std::endl;
+            continue;
+        }
+
+        // Enlever les espaces en trop
+        date = trim(date);
+        valueStr = trim(valueStr);
+
+        if (!isValidDate(date))
+        {
+            std::cout << "Error: bad input => " << line << std::endl;
+            continue;
+        }
+
+        if (!isValidValue(valueStr))
+        {
+            if (valueStr.find_first_not_of("0123456789.") != std::string::npos)
+            {
+                std::cout << "Error: not a positive number." << std::endl;
+            }
+            else
+            {
+                std::cout << "Error: too large a number." << std::endl;
+            }
+            continue;
+        }
+
+        float value = std::stof(valueStr);
+        float rate = getClosestExchangeRate(date);
+        std::cout << date << " => " << value << " = " << value * rate << std::endl;
+    }
+}
+
+std::string BitcoinExchange::trim(const std::string &str)
+{
+    size_t first = str.find_first_not_of(' ');
+    if (std::string::npos == first)
+    {
+        return str;
+    }
+    size_t last = str.find_last_not_of(' ');
+    return str.substr(first, (last - first + 1));
+}
+
+// Méthode pour obtenir le taux de change le plus proche
+float BitcoinExchange::getClosestExchangeRate(const std::string &date)
+{
+    std::map<std::string, float>::iterator it = exchangeRates.lower_bound(date);
+
+    if (it == exchangeRates.end())
+    {
+        return 0.0f; // Handle case where no exchange rate is found
+    }
+
+    // If the exact date is found or the first date is greater than the input date
+    if (it->first == date || it == exchangeRates.begin())
+    {
+        return it->second;
+    }
+    //std::cout << "Date demandée: " << date << ", Taux trouvé: " << it->second << std::endl;
+
+    // Return the rate of the previous date
+    return (--it)->second;
+}
+
+// Méthodes pour valider les dates et les valeurs
 bool BitcoinExchange::isValidDate(const std::string &dateStr)
 {
-    // Utilisez une expression régulière pour valider le format Year-Month-Day
-    std::regex dateRegex("\\d{4}-\\d{2}-\\d{2}");
-    return (std::regex_match(dateStr, dateRegex));
+    std::regex datePattern("^[0-9]{4}-[0-9]{2}-[0-9]{2}$");
+    return std::regex_match(dateStr, datePattern);
 }
+
 bool BitcoinExchange::isValidValue(const std::string &valueStr)
 {
     try
     {
-        float value = std::stof(valueStr); // Essayez de convertir en float
-        return (value >= 0.0f && value <= 1000.0f);
+        float value = std::stof(valueStr);
+        return value >= 0 && value <= 1000;
     }
-    catch (const std::invalid_argument &e)
+    catch (const std::invalid_argument&)
     {
-        try
-	{
-            int value = std::stoi(valueStr); // Essayez de convertir en int
-            return value >= 0 && value <= 1000;
-        }
-	catch (const std::invalid_argument &e)
-	{
-            return (false); // Ni float ni int valide
-        }
+        return false;
     }
-}
-
-void BitcoinExchange::readInputFile(const std::string &inputFilename)
-{
-    std::ifstream inputFile(inputFilename.c_str());
-
-    if (!inputFile.is_open())
-    {
-        std::cerr << "Error: Could not open input file " << inputFilename << std::endl;
-        return;
-    }
-
-    std::string line;
-    while (std::getline(inputFile, line))
-    {
-        std::istringstream iss(line);
-        std::string dateStr, valueStr;
-
-        if (std::getline(iss, dateStr, '|') && std::getline(iss, valueStr))
-	{
-            if (isValidDate(dateStr) && isValidValue(valueStr))
-	    {
-                BitcoinData data;
-                data.date = dateStr;
-                data.value = std::stof(valueStr);
-                bitcoinData.push_back(data);
-            }
-	    else
-	    {
-                std::cerr << "Error: Invalid date format in input file" << std::endl;
-            }
-        }
-	else
-	{
-            std::cerr << "Error: Invalid line format in input file" << std::endl;
-        }
-    }
-    inputFile.close();
-}
-
-// Fonction pour lire les données Bitcoin à partir d'un fichier CSV
-void BitcoinExchange::readBitcoinData(const std::string& bitcoinDataFile)
-{
-    std::ifstream file(bitcoinDataFile);
-    if (!file.is_open())
-    {
-        std::cerr << "Erreur : Impossible d'ouvrir le fichier BitcoinData." << std::endl;
-        return;
-    }
-
-    std::string line;
-    while (std::getline(file, line))
-    {
-        std::istringstream ss(line);
-        BitcoinData bitcoinEntry;
-        std::string date;
-        std::string valueStr;
-        if (std::getline(ss, date, '|') && std::getline(ss, valueStr, '|'))
-        {
-            bitcoinEntry.date = date;
-            bitcoinEntry.value = std::stof(valueStr);
-            bitcoinData.push_back(bitcoinEntry);
-        }
-        else
-        {
-            std::cerr << "Erreur : Format de ligne incorrect dans le fichier BitcoinData." << std::endl;
-        }
-    }
-    file.close();
-}
-
-// Fonction pour évaluer les valeurs Bitcoin à partir d'un fichier d'entrée
-void BitcoinExchange::evaluateBitcoinValues(const std::string& inputFilename)
-{
-    std::ifstream inputFile(inputFilename);
-    if (!inputFile.is_open())
-    {
-        std::cerr << "Erreur : Impossible d'ouvrir le fichier d'entrée." << std::endl;
-        return;
-    }
-
-    std::string line;
-    while (std::getline(inputFile, line))
-    {
-        std::istringstream ss(line);
-        std::string date;
-        std::string valueStr;
-        if (std::getline(ss, date, '|') && std::getline(ss, valueStr, '|'))
-        {
-            float valueToEvaluate = std::stof(valueStr);
-            // Recherche de la valeur Bitcoin correspondante à la date spécifiée
-            for (const BitcoinData& bitcoinEntry : bitcoinData)
-            {
-                if (bitcoinEntry.date == date)
-                {
-                    std::cout << "Date : " << date << ", Valeur Bitcoin : " << bitcoinEntry.value << std::endl;
-                    break;
-                }
-            }
-        }
-        else
-        {
-            std::cerr << "Erreur : Format de ligne incorrect dans le fichier d'entrée." << std::endl;
-        }
-    }
-    inputFile.close();
 }
