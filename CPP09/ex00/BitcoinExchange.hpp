@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 20:44:36 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/18 16:11:24 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/22 16:51:24 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include <string>
 #include <vector>
 #include <map>
-#include <regex>
+#include <sstream>
 
 struct BitcoinData
 {
@@ -39,13 +39,14 @@ class BitcoinExchange
 		BitcoinExchange();
 		BitcoinExchange(const BitcoinExchange &other);
 		BitcoinExchange &operator=(const BitcoinExchange &other);
-    		BitcoinExchange(const std::string &bitcoinDataFile);
-    		~BitcoinExchange();
+    	BitcoinExchange(const std::string &bitcoinDataFile);
+    	~BitcoinExchange();
 
-    		void evaluateBitcoinValues(const std::string &inputFilename);
-        	bool isValidDate(const std::string &dateStr);
-        	bool isValidValue(const std::string &valueStr);
-        	float getClosestExchangeRate(const std::string &date);
+    	void evaluateBitcoinValues(const std::string &inputFilename);
+        bool isValidDate(const std::string &dateStr);
+        bool isValidValue(const std::string &valueStr);
+        float getClosestExchangeRate(const std::string &date);
+		float stringToFloat(const std::string &str);
 
 };
 

@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 16:14:22 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/18 16:22:02 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/22 15:41:44 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 #include <cctype>
 #include <sstream>
 #include <stdexcept>
+#include <cstdlib>
+
 
 class RPN
 {

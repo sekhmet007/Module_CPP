@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 16:36:40 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/20 17:43:48 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/22 15:44:36 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ PmergeMe::PmergeMe(const PmergeMe &other)
 PmergeMe &PmergeMe::operator=(const PmergeMe &other)
 {
 	(void)other;
-	return *this;
+	return (*this);
 }
 
 PmergeMe::~PmergeMe(void) {};

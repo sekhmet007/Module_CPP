@@ -6,7 +6,7 @@
 /*   By: ecullier <ecullier@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 16:14:39 by ecullier          #+#    #+#             */
-/*   Updated: 2024/01/18 16:28:19 by ecullier         ###   ########.fr       */
+/*   Updated: 2024/01/22 15:43:03 by ecullier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ RPN& RPN::operator=(const RPN&other)
 
 RPN::~RPN() {}
 
-int RPN::evaluate(const std::string& expression)
+int RPN::evaluate(const std::string &expression)
 {
     std::istringstream iss(expression);
     std::string token;
@@ -38,9 +38,9 @@ int RPN::evaluate(const std::string& expression)
     while (iss >> token)
     {
         if (isOperator(token[0]) && token.size() == 1)
-	{
-            if (stack.size() < 2)
 	    {
+            if (stack.size() < 2)
+	        {
                 throw std::runtime_error("Insufficient operands");
             }
             int operand2 = stack.top();
@@ -51,15 +51,15 @@ int RPN::evaluate(const std::string& expression)
             int result = performOperation(token[0], operand1, operand2);
             stack.push(result);
         }
-	else
-	{
-            try
+	    else
 	    {
-                int num = std::stoi(token);
+            try
+	        {
+                int num = atoi(token.c_str());
                 stack.push(num);
             }
-	    catch (const std::invalid_argument&)
-	    {
+	        catch (const std::invalid_argument&)
+	        {
                 throw std::runtime_error("Invalid token encountered");
             }
         }
@@ -87,7 +87,7 @@ int RPN::performOperation(const char &operation, int operand1, int operand2)
         case '*': return operand1 * operand2;
         case '/':
             if (operand2 == 0)
-	    {
+	        {
                 throw std::runtime_error("Division by zero");
             }
             return (operand1 / operand2);
